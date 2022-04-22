@@ -7,15 +7,13 @@ import java.util.Date;
 
 public class Contract {
 	public final SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
-	
+
 	private Integer number;
 	private Date date;
 	private Double totalValue;
-	
-	
-	
-	public static Calendar cal  = new Calendar() {
-		
+
+	public static Calendar cal = new Calendar() {
+
 		/**
 		 * 
 		 */
@@ -24,56 +22,56 @@ public class Contract {
 		@Override
 		public void roll(int field, boolean up) {
 			// TODO Auto-generated method stub
-			
+
 		}
-		
+
 		@Override
 		public int getMinimum(int field) {
 			// TODO Auto-generated method stub
 			return 0;
 		}
-		
+
 		@Override
 		public int getMaximum(int field) {
 			// TODO Auto-generated method stub
 			return 0;
 		}
-		
+
 		@Override
 		public int getLeastMaximum(int field) {
 			// TODO Auto-generated method stub
 			return 0;
 		}
-		
+
 		@Override
 		public int getGreatestMinimum(int field) {
 			// TODO Auto-generated method stub
 			return 0;
 		}
-		
+
 		@Override
 		protected void computeTime() {
 			// TODO Auto-generated method stub
-			
+
 		}
-		
+
 		@Override
 		protected void computeFields() {
 			// TODO Auto-generated method stub
-			
+
 		}
-		
+
 		@Override
 		public void add(int field, int amount) {
 			// TODO Auto-generated method stub
-			
+
 		}
-	} ;
-	
+	};
+
 	ArrayList<Installment> installments = new ArrayList<>();
-	
+
 	public Contract() {
-		
+
 	}
 
 	public Contract(Integer number, Date date, Double totalValue) {
@@ -105,18 +103,23 @@ public class Contract {
 	public void setTotalValue(Double totalValue) {
 		this.totalValue = totalValue;
 	}
-	
-	public void addInstallment (Installment installment){
-		Date date = Calendar.getInstance().getTime();
-		Long long1 = date.getTime();
-		
+
+	public ArrayList<Installment> getInstallments() {
+		return installments;
+	}
+
+	public void addInstallment(Installment installment) {
+
 		installments.add(installment);
 	}
-	
-	public void removeInstallment (Installment installment){
+
+	public void removeInstallment(Installment installment) {
 		installments.remove(installment);
 	}
-	
-	
-	
+
+	@Override
+	public String toString() {
+		return "Contract [number=" + number + ", date=" + sdf.format(date) + ", totalValue=" + totalValue + "]";
+	}
+
 }

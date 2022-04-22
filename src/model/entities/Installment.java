@@ -36,7 +36,7 @@ public class Installment {
 
 	@Override
 	public String toString() {
-		return "Installment [dueDate=" + dueDate + ", amount=" + amount + "]";
+		return "Installment [dueDate=" + sdf.format(dueDate) + " - " + String.format("%.2f", amount) + "]";
 	}
 	
 	
